@@ -8,7 +8,7 @@ import java.util.List;
 public class Table {
 	
 	private String name;//表名称
-	private String name2;//处理后的表名称
+	private String name2;//处理后的表名称,对应的类名
 	private String comment;//介绍
 	private String key;// 主键列
 	private List<Column> columns;//列集合
@@ -51,5 +51,16 @@ public class Table {
 
 	public void setColumns(List<Column> columns) {
 		this.columns = columns;
+	}
+
+	@Override
+	public String toString() {
+		return "Table{" +
+				"name='" + name + '\'' +
+				", name2='" + name2 + '\'' +
+				", comment='" + comment + '\'' +
+				", key='" + key + '\'' +
+				", columns=" + columns +
+				'}';
 	}
 }
