@@ -1,10 +1,10 @@
-package com.ihrm.company.controller;
+package com.ihrm.${ClassName}.controller;
 
 import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
 import com.ihrm.common.exception.CommonException;
-import com.ihrm.company.service.CompanyService;
-import com.ihrm.domain.company.Company;
+import com.ihrm.${ClassName}.service.${ClassName}Service;
+import com.ihrm.domain.${ClassName}.${ClassName};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,17 +13,17 @@ import java.util.List;
 //解决跨域问题
 @CrossOrigin
 @RestController
-@RequestMapping(value="/company")
-public class CompanyController {
+@RequestMapping(value="/${ClassName}")
+public class ${ClassName}Controller {
 
     @Autowired
-    private CompanyService companyService;
+    private ${ClassName}Service ${ClassName}Service;
 
     //保存用户
     @RequestMapping(value="",method = RequestMethod.POST)
-    public Result save(@RequestBody Company company)  {
+    public Result save(@RequestBody ${ClassName} ${ClassName})  {
         //业务操作
-        companyService.add(company);
+        ${ClassName}Service.add(${ClassName});
         return new Result(ResultCode.SUCCESS);
     }
 
@@ -34,17 +34,17 @@ public class CompanyController {
      * 3.响应
      */
     @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-    public Result update(@PathVariable(value="id") String id, @RequestBody Company company ) {
+    public Result update(@PathVariable(value="id") String id, @RequestBody ${ClassName} ${ClassName} ) {
         //业务操作
-        company.setId(id);
-        companyService.update(company);
+        ${ClassName}.setId(id);
+        ${ClassName}Service.update(${ClassName});
         return new Result(ResultCode.SUCCESS);
     }
 
     //根据id删除用户
     @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
     public Result delete(@PathVariable(value="id") String id) {
-        companyService.deleteById(id);
+        ${ClassName}Service.deleteById(id);
         return new Result(ResultCode.SUCCESS);
     }
 
@@ -52,9 +52,9 @@ public class CompanyController {
     @RequestMapping(value="/{id}",method = RequestMethod.GET)
     public Result findById(@PathVariable(value="id") String id) throws CommonException {
         //throw new CommonException(ResultCode.UNAUTHORISE);
-        Company company = companyService.findById(id);
+        ${ClassName} ${ClassName} = ${ClassName}Service.findById(id);
         Result result = new Result(ResultCode.SUCCESS);
-        result.setData(company);
+        result.setData(${ClassName});
         return result;
     }
 
@@ -62,7 +62,7 @@ public class CompanyController {
     @RequestMapping(value="",method = RequestMethod.GET)
     public Result findAll() {
         //int i = 1/0;
-        List<Company> list = companyService.findAll();
+        List<${ClassName}> list = ${ClassName}Service.findAll();
         Result result = new Result(ResultCode.SUCCESS);
         result.setData(list);
         return result;
