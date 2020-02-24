@@ -7,6 +7,7 @@ import cn.arvinyl.generate.ui.DatabaseUtil;
 import cn.arvinyl.generate.utils.DataBaseUtils;
 import cn.arvinyl.generate.utils.PropertiesUtils;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,12 +22,14 @@ public class GeneratorFacade {
     private String outPath;
     private Settings settings;
     private DataBase db;
+    private Generator generator;
 
-    public GeneratorFacade(String templatePath, String outPath, Settings settings, DataBase db) {
+    public GeneratorFacade(String templatePath, String outPath, Settings settings, DataBase db) throws IOException {
         this.templatePath = templatePath;
         this.outPath = outPath;
         this.settings = settings;
         this.db = db;
+        this.generator = new Generator(templatePath , outPath);
     }
 
     
@@ -35,6 +38,7 @@ public class GeneratorFacade {
         for (Table table : tables) {
             //对每一个Table对象进行代码生成
             Map<String,Object> dataModel = getDataModel(table);
+            generator.scanAndGenerator(dataModel);
                 
         }
     }
