@@ -507,10 +507,6 @@ public class CodeUtil extends JFrame {
 	 * @param db				数据库信息
 	 */
 	private void generator(String templetPath, String outpath, Settings settings, DataBase db) throws Exception {
-		System.out.println(templetPath);
-		System.out.println(outpath);
-		System.out.println(settings);
-		System.out.println(db);
 		GeneratorFacade gf = new GeneratorFacade(templetPath,outpath,settings,db);
 		gf.generatorByDataBase();
 	}

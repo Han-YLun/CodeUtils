@@ -70,7 +70,7 @@ public class DataBaseUtils {
             String keys = "";
             while (primaryKeys.next()){
                 String keyName = primaryKeys.getString("COLUMN_NAME");
-                keys += keyName;
+                keys += keyName+",";
             }
 
             table.setName(tableName);
@@ -98,12 +98,11 @@ public class DataBaseUtils {
                 String columnRemark = columns.getString("REMARKS");
                 cn.setColumnComment(columnRemark);
                 //是否主键
-                String pri = "";
-                if (StringUtils.contains(keys , keys.split(","))){
+                String pri = null;
+                if (StringUtils.contains(columnName , keys.split(","))){
                     pri = "PRI";
                 }
                 cn.setColumnKey(pri);
-
                 columnList.add(cn);
             }
             columns.close();
