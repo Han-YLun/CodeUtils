@@ -39,7 +39,6 @@ public class GeneratorFacade {
             //对每一个Table对象进行代码生成
             Map<String,Object> dataModel = getDataModel(table);
             generator.scanAndGenerator(dataModel);
-                
         }
     }
 

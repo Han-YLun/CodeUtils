@@ -1,11 +1,13 @@
 package cn.arvinyl.generate.ui;
 
 
+import cn.arvinyl.generate.core.GeneratorFacade;
 import cn.arvinyl.generate.entity.DataBase;
 import cn.arvinyl.generate.entity.Settings;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -360,7 +362,6 @@ public class CodeUtil extends JFrame {
 	private void formWindowClosing(java.awt.event.WindowEvent evt) {
 		dispose();
 		System.exit(0);
-
 	}
 
 
@@ -505,13 +506,13 @@ public class CodeUtil extends JFrame {
 	 * @param settings			工程配置对象
 	 * @param db				数据库信息
 	 */
-	private void generator(String templetPath, String outpath, Settings settings, DataBase db) {
+	private void generator(String templetPath, String outpath, Settings settings, DataBase db) throws Exception {
 		System.out.println(templetPath);
 		System.out.println(outpath);
 		System.out.println(settings);
 		System.out.println(db);
-//		GeneratorFacade gf = new GeneratorFacade(templetPath,outpath,settings);
-//		gf.generatorByTable(db);
+		GeneratorFacade gf = new GeneratorFacade(templetPath,outpath,settings,db);
+		gf.generatorByDataBase();
 	}
 
 }
