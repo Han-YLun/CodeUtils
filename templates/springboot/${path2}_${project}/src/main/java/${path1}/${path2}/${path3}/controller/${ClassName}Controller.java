@@ -29,7 +29,7 @@ public class ${ClassName}Controller {
 
     //根据id更新
     @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-    public Result update(@PathVariable(value="id") String id, @RequestBody ${ClassName} ${classNameLower} ) {
+    public Result update(@PathVariable(value="id") String id, @RequestBody ${ClassName} ${classNameLower}) {
         //业务操作
         ${classNameLower}.setId(id);
         ${classNameLower}Service.update(${classNameLower});
