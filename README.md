@@ -8,9 +8,6 @@
 # 使用操作
 
 ![image-20200226135056717](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200226135056717.png)
-
-
-
 ![image-20200226135141082](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200226135141082.png)
 
 ![image-20200226135209667](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200226135209667.png)
